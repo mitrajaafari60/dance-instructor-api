@@ -101,47 +101,48 @@ go run main.go
 
 ## API Endpoints
 
-    All endpoints are under the /api/v1 prefix and require JWT authentication.
+All endpoints are under the /api/v1 prefix and require JWT authentication.
 
-    Method	Endpoint	        Description	                    Request Body (if applicable)
-    GET	    /instructors	    List all instructors	        -
-    GET	    /instructors/:id	Get instructor by ID	        -
-    POST	/instructors	    Create a new instructor         {"name": "", "bio": "", "specialty": "","availability": ""}
-    PUT	    /instructors/:id	Update an existing instructor   {"name": "", "bio": "", "specialty": "", "availability": ""}
-    DELETE	/instructors/:id	Delete an instructor by ID	    -
+Method	Endpoint	        Description	                    Request Body (if applicable)
+GET	    /instructors	    List all instructors	        -
+GET	    /instructors/:id	Get instructor by ID	        -
+POST	/instructors	    Create a new instructor         {"name": "", "bio": "", "specialty": "","availability": ""}
+PUT	    /instructors/:id	Update an existing instructor   {"name": "", "bio": "", "specialty": "", "availability": ""}
+DELETE	/instructors/:id	Delete an instructor by ID	    -
 
 ## API Documentation
 
-    You can view the Swagger documentation below:
+You can view the Swagger documentation below:
     http://localhost:8081/swagger/index.html
 
 # Example Requests
 
-    Create Instructor:
+Create Instructor:
 
     curl -X POST http://localhost:8081/api/v1/instructors \
         -H "Authorization: Bearer <jwt-token>" \
         -H "Content-Type: application/json" \
         -d '{"name": "Jane Doe", "bio": "Expert dancer", "specialty": "Ballet", "availability": "Mon-Fri"}'
 
-    Get All Instructors:
+Get All Instructors:
     curl http://localhost:8081/api/v1/instructors \
      -H "Authorization: Bearer <jwt-token>"
 
 
 ## Authentication
 
-    The API uses JWT with RSA signing for authentication. Tokens must be included in the Authorization header as Bearer <token>.
+The API uses JWT with RSA signing for authentication. Tokens must be included in the Authorization header as Bearer <token>.
 
-    Generating a JWT Token
+Generating a JWT Token
     
 ```
 export PRINT_TEST_TOKEN=true
 go run main.go
 ```
+
 ## Testing
 
-    Run the unit and integration tests:
+Run the unit and integration tests:
 
 ```    
 cd tests

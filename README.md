@@ -61,43 +61,44 @@ dance-instructor-api/
 1. **Clone the Repository:**
 
 ```
-   git clone https://github.com/mitrajaafari60/dance-instructor-api
-   cd dance-instructor-api
+git clone https://github.com/mitrajaafari60/dance-instructor-api
+cd dance-instructor-api
 ```
 
 ## Install Dependencies:
 
 ```   
-    go mod download
+go mod download
 ```
 ##  Generate RSA Key Pair: 
-
-    Generate private and public keys for JWT authentication:
+Generate private and public keys for JWT authentication:
 
 ```
-    openssl genrsa -out private.pem 2048
-    openssl rsa -in private.pem -pubout -out public.pem
+openssl genrsa -out private.pem 2048
+openssl rsa -in private.pem -pubout -out public.pem
 ```
 
 ## Running the API
 
 ```
-    go run main.go
+go run main.go
 ```    
-    The API will start on http://localhost:8081 by default.
-    Run in Release Mode (Production): To disable debug logging:
+    
+The API will start on http://localhost:8081 by default.
+Run in Release Mode (Production): To disable debug logging:
 
 ```
-    export GIN_MODE=release
-    go run main.go
+export GIN_MODE=release
+go run main.go
 ```
 
-    Custom Port (Optional): Set a different port via environment variable:
+Custom Port (Optional): Set a different port via environment variable:
 
 ```
-    export PORT=:8080
-    go run main.go
+export PORT=:8080
+go run main.go
 ```
+
 ## API Endpoints
 
     All endpoints are under the /api/v1 prefix and require JWT authentication.
@@ -118,18 +119,15 @@ dance-instructor-api/
 
     Create Instructor:
 
-```
     curl -X POST http://localhost:8081/api/v1/instructors \
         -H "Authorization: Bearer <jwt-token>" \
         -H "Content-Type: application/json" \
         -d '{"name": "Jane Doe", "bio": "Expert dancer", "specialty": "Ballet", "availability": "Mon-Fri"}'
-```
-    Get All Instructors:
 
-```
+    Get All Instructors:
     curl http://localhost:8081/api/v1/instructors \
      -H "Authorization: Bearer <jwt-token>"
-```
+
 
 ## Authentication
 
@@ -138,14 +136,14 @@ dance-instructor-api/
     Generating a JWT Token
     
 ```
-    export PRINT_TEST_TOKEN=true
-    go run main.go
+export PRINT_TEST_TOKEN=true
+go run main.go
 ```
 ## Testing
 
     Run the unit and integration tests:
 
 ```    
-    cd tests
-    go test -v
+cd tests
+go test -v
 ```

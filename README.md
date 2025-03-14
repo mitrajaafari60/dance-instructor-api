@@ -89,12 +89,12 @@ dance-instructor-api/
 ## API Endpoints
     All endpoints are under the /api/v1 prefix and require JWT authentication.
 
-    Method	Endpoint	Description	Request Body (if applicable)
-    GET	    /instructors	List all instructors	-
-    GET	    /instructors/:id	Get instructor by ID	-
-    POST	/instructors	Create a new instructor	{"name": "", "bio": "", "specialty": "", "availability": ""}
-    PUT	    /instructors/:id	Update an existing instructor	{"name": "", "bio": "", "specialty": "", "availability": ""}
-    DELETE	/instructors/:id	Delete an instructor by ID	-
+    Method	Endpoint	        Description	                    Request Body (if applicable)
+    GET	    /instructors	    List all instructors	        -
+    GET	    /instructors/:id	Get instructor by ID	        -
+    POST	/instructors	    Create a new instructor         {"name": "", "bio": "", "specialty": "", "availability": ""}
+    PUT	    /instructors/:id	Update an existing instructor   {"name": "", "bio": "", "specialty": "", "availability": ""}
+    DELETE	/instructors/:id	Delete an instructor by ID	    -
 
 ## API Documentation
     You can view the Swagger documentation below:

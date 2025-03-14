@@ -5,7 +5,7 @@
 # Dance Instructor API
 
 A RESTful API built with Go and Gin to manage a directory of dance instructors for a dance studio. This project uses JWT (JSON Web Token) authentication with RSA signing for security and an in-memory store for data persistence.
----
+
 
 ## Project Structure
 
@@ -38,7 +38,7 @@ dance-instructor-api/
 ├── go.mod             
 ├── main.go            
 └── README.md         
----
+
 
 ## Features
 
@@ -48,7 +48,6 @@ dance-instructor-api/
 - **Unit and integration tests** with `testify`
 - **Configurable port** via environment variables
 
----
 
 ## Prerequisites
 

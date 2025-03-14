@@ -6,36 +6,36 @@
 
 A RESTful API built with Go and Gin to manage a directory of dance instructors for a dance studio. This project uses JWT (JSON Web Token) authentication with RSA signing for security and an in-memory store for data persistence.
 
-## Project Structure
+# Project Structure
 dance-instructor-api/
-├── cmd/                # Application Server
+├── cmd/                
 │   └── server.go
-├── docs/               # swagger generated files with swag init
+├── docs/               
 │   └── docs.go
 │   └── swagger.json
 │   └── swagger.yaml
-├── internal/           # Private application code
-│   ├── auth/          # JWT authentication utilities
+├── internal/           
+│   ├── auth/          
 │   │   └── jwt.go
-│   ├── config/        # Configuration settings
+│   ├── config/       
 │   │   └── config.go
-│   ├── handlers/      # HTTP handlers
+│   ├── handlers/      
 │   │   └── instructor.go
-│   ├── middleware/    # Middleware implementations
+│   ├── middleware/    
 │   │   └── jwt.go
-│   ├── models/        # Data models
+│   ├── models/        
 │   │   └── instructor.go
-│   └── storage/       # Data storage implementations
+│   └── storage/      
 │       └── memory.go
-├── tests/             # Test files
+├── tests/             
 │   ├── instructor_test.go
 │   ├── jwt_test.go
-│   └── ...           # Other test files
-├── private.pem        # RSA private key (not in version control)
-├── public.pem         # RSA public key (not in version control)
-├── go.mod             # Go module file
-├── main.go            # Application entry point
-└── README.md          # Project documentation
+│   └── ...          
+├── private.pem        
+├── public.pem         
+├── go.mod             
+├── main.go            
+└── README.md         
 
 ## Features
 
@@ -96,17 +96,21 @@ dance-instructor-api/
     PUT	    /instructors/:id	Update an existing instructor	{"name": "", "bio": "", "specialty": "", "availability": ""}
     DELETE	/instructors/:id	Delete an instructor by ID	-
 
+## API Documentation
+    You can view the Swagger documentation below:
+    http://localhost:8081/swagger/index.html
+
 # Example Requests
     Create Instructor:
 ```bash
-    curl -X POST http://localhost:8070/api/v1/instructors \
+    curl -X POST http://localhost:8081/api/v1/instructors \
         -H "Authorization: Bearer <jwt-token>" \
         -H "Content-Type: application/json" \
         -d '{"name": "Jane Doe", "bio": "Expert dancer", "specialty": "Ballet", "availability": "Mon-Fri"}'
 ```
     Get All Instructors:
 ```bash
-    curl http://localhost:8070/api/v1/instructors \
+    curl http://localhost:8081/api/v1/instructors \
      -H "Authorization: Bearer <jwt-token>"
 ```
 

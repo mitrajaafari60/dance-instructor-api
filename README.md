@@ -5,8 +5,9 @@
 # Dance Instructor API
 
 A RESTful API built with Go and Gin to manage a directory of dance instructors for a dance studio. This project uses JWT (JSON Web Token) authentication with RSA signing for security and an in-memory store for data persistence.
+---
 
-# Project Structure
+## Project Structure
 
 dance-instructor-api/
 ├── cmd/                
@@ -37,6 +38,7 @@ dance-instructor-api/
 ├── go.mod             
 ├── main.go            
 └── README.md         
+---
 
 ## Features
 
@@ -46,6 +48,8 @@ dance-instructor-api/
 - **Unit and integration tests** with `testify`
 - **Configurable port** via environment variables
 
+---
+
 ## Prerequisites
 
 - Go 1.21 or higher
@@ -53,21 +57,24 @@ dance-instructor-api/
 - OpenSSL (for generating RSA keys)
 - A terminal or command-line interface
 
+---
 ## Installation
-
 1. **Clone the Repository:**
 
 ```bash
    git clone https://github.com/mitrajaafari60/dance-instructor-api
    cd dance-instructor-api
 ```
+
 ## Install Dependencies:
+
 ```bash   
     go mod download
 ```
 ##  Generate RSA Key Pair: 
 
     Generate private and public keys for JWT authentication:
+
 ```bash
     openssl genrsa -out private.pem 2048
     openssl rsa -in private.pem -pubout -out public.pem
@@ -80,11 +87,13 @@ dance-instructor-api/
 ```    
     The API will start on http://localhost:8081 by default.
     Run in Release Mode (Production): To disable debug logging:
+
 ```bash
     export GIN_MODE=release
     go run main.go
 ```
     Custom Port (Optional): Set a different port via environment variable:
+
 ```bash
     export PORT=:8080
     go run main.go
@@ -108,6 +117,7 @@ dance-instructor-api/
 # Example Requests
 
     Create Instructor:
+
 ```bash
     curl -X POST http://localhost:8081/api/v1/instructors \
         -H "Authorization: Bearer <jwt-token>" \
@@ -115,6 +125,7 @@ dance-instructor-api/
         -d '{"name": "Jane Doe", "bio": "Expert dancer", "specialty": "Ballet", "availability": "Mon-Fri"}'
 ```
     Get All Instructors:
+
 ```bash
     curl http://localhost:8081/api/v1/instructors \
      -H "Authorization: Bearer <jwt-token>"
@@ -125,13 +136,16 @@ dance-instructor-api/
     The API uses JWT with RSA signing for authentication. Tokens must be included in the Authorization header as Bearer <token>.
 
     Generating a JWT Token
+
 ```bash
     export PRINT_TEST_TOKEN=true
     go run main.go
 ```
+
 ## Testing
 
     Run the unit and integration tests:
+    
 ```bash    
     cd tests
     go test -v

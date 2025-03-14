@@ -7,6 +7,7 @@
 A RESTful API built with Go and Gin to manage a directory of dance instructors for a dance studio. This project uses JWT (JSON Web Token) authentication with RSA signing for security and an in-memory store for data persistence.
 
 # Project Structure
+
 dance-instructor-api/
 ├── cmd/                
 │   └── server.go
@@ -57,7 +58,7 @@ dance-instructor-api/
 1. **Clone the Repository:**
 
 ```bash
-   git clone <repository-url>
+   git clone https://github.com/mitrajaafari60/dance-instructor-api
    cd dance-instructor-api
 ```
 ## Install Dependencies:
@@ -65,6 +66,7 @@ dance-instructor-api/
     go mod download
 ```
 ##  Generate RSA Key Pair: 
+
     Generate private and public keys for JWT authentication:
 ```bash
     openssl genrsa -out private.pem 2048
@@ -72,6 +74,7 @@ dance-instructor-api/
 ```
 
 ## Running the API
+
 ```bash
     go run main.go
 ```    
@@ -87,20 +90,23 @@ dance-instructor-api/
     go run main.go
 ```
 ## API Endpoints
+
     All endpoints are under the /api/v1 prefix and require JWT authentication.
 
     Method	Endpoint	        Description	                    Request Body (if applicable)
     GET	    /instructors	    List all instructors	        -
     GET	    /instructors/:id	Get instructor by ID	        -
-    POST	/instructors	    Create a new instructor         {"name": "", "bio": "", "specialty": "", "availability": ""}
+    POST	/instructors	    Create a new instructor         {"name": "", "bio": "", "specialty": "","availability": ""}
     PUT	    /instructors/:id	Update an existing instructor   {"name": "", "bio": "", "specialty": "", "availability": ""}
     DELETE	/instructors/:id	Delete an instructor by ID	    -
 
 ## API Documentation
+
     You can view the Swagger documentation below:
     http://localhost:8081/swagger/index.html
 
 # Example Requests
+
     Create Instructor:
 ```bash
     curl -X POST http://localhost:8081/api/v1/instructors \
@@ -115,6 +121,7 @@ dance-instructor-api/
 ```
 
 ## Authentication
+
     The API uses JWT with RSA signing for authentication. Tokens must be included in the Authorization header as Bearer <token>.
 
     Generating a JWT Token
@@ -123,6 +130,7 @@ dance-instructor-api/
     go run main.go
 ```
 ## Testing
+
     Run the unit and integration tests:
 ```bash    
     cd tests

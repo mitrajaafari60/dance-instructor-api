@@ -1,0 +1,242 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/instructors": {
+            "get": {
+                "description": "Retrieves a list of all instructors",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "instructors"
+                ],
+                "summary": "Get all instructors",
+                "responses": {
+                    "200": {
+                        "description": "List of instructors",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Instructor"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Creates a new instructor record",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "instructors"
+                ],
+                "summary": "Create a new instructor",
+                "parameters": [
+                    {
+                        "description": "Instructor object",
+                        "name": "instructor",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Instructor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created instructor",
+                        "schema": {
+                            "$ref": "#/definitions/models.Instructor"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request body",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/instructors/{id}": {
+            "get": {
+                "description": "Retrieves a specific instructor by their ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "instructors"
+                ],
+                "summary": "Get an instructor by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Instructor ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Instructor details",
+                        "schema": {
+                            "$ref": "#/definitions/models.Instructor"
+                        }
+                    },
+                    "404": {
+                        "description": "Instructor not found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Updates an existing instructor record",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "instructors"
+                ],
+                "summary": "Update an instructor",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Instructor ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Instructor object",
+                        "name": "instructor",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Instructor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated instructor",
+                        "schema": {
+                            "$ref": "#/definitions/models.Instructor"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request body",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Instructor not found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Removes an instructor by their ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "instructors"
+                ],
+                "summary": "Delete an instructor",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Instructor ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "404": {
+                        "description": "Instructor not found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Instructor": {
+            "type": "object",
+            "required": [
+                "availability",
+                "bio",
+                "name",
+                "specialty"
+            ],
+            "properties": {
+                "availability": {
+                    "description": "Available teaching times",
+                    "type": "string"
+                },
+                "bio": {
+                    "description": "Brief biography of the instructor",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Unique identifier for the instructor",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Instructor's full name",
+                    "type": "string"
+                },
+                "specialty": {
+                    "description": "Dance specialty (e.g., Ballet, Hip-Hop)",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

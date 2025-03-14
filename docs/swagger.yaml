@@ -1,0 +1,161 @@
+definitions:
+  models.Instructor:
+    properties:
+      availability:
+        description: Available teaching times
+        type: string
+      bio:
+        description: Brief biography of the instructor
+        type: string
+      id:
+        description: Unique identifier for the instructor
+        type: string
+      name:
+        description: Instructor's full name
+        type: string
+      specialty:
+        description: Dance specialty (e.g., Ballet, Hip-Hop)
+        type: string
+    required:
+    - availability
+    - bio
+    - name
+    - specialty
+    type: object
+info:
+  contact: {}
+paths:
+  /instructors:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves a list of all instructors
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of instructors
+          schema:
+            items:
+              $ref: '#/definitions/models.Instructor'
+            type: array
+      summary: Get all instructors
+      tags:
+      - instructors
+    post:
+      consumes:
+      - application/json
+      description: Creates a new instructor record
+      parameters:
+      - description: Instructor object
+        in: body
+        name: instructor
+        required: true
+        schema:
+          $ref: '#/definitions/models.Instructor'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created instructor
+          schema:
+            $ref: '#/definitions/models.Instructor'
+        "400":
+          description: Invalid request body
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Create a new instructor
+      tags:
+      - instructors
+  /instructors/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Removes an instructor by their ID
+      parameters:
+      - description: Instructor ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Instructor not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Delete an instructor
+      tags:
+      - instructors
+    get:
+      consumes:
+      - application/json
+      description: Retrieves a specific instructor by their ID
+      parameters:
+      - description: Instructor ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Instructor details
+          schema:
+            $ref: '#/definitions/models.Instructor'
+        "404":
+          description: Instructor not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get an instructor by ID
+      tags:
+      - instructors
+    put:
+      consumes:
+      - application/json
+      description: Updates an existing instructor record
+      parameters:
+      - description: Instructor ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Instructor object
+        in: body
+        name: instructor
+        required: true
+        schema:
+          $ref: '#/definitions/models.Instructor'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated instructor
+          schema:
+            $ref: '#/definitions/models.Instructor'
+        "400":
+          description: Invalid request body
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Instructor not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Update an instructor
+      tags:
+      - instructors
+swagger: "2.0"

@@ -1,0 +1,151 @@
+{
+    "info": {
+      "_postman_id": "dance-collection-id",
+      "name": "Dance Instructor API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get All Instructors",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{jwt_token}}",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8081/api/v1/instructors",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8081",
+            "path": ["api", "v1", "instructors"]
+          }
+        }
+      },
+      {
+        "name": "Get Instructor by ID",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{jwt_token}}",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8081/api/v1/instructors/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8081",
+            "path": ["api", "v1", "instructors", ":id"],
+            "variable": [
+              {
+                "id": "id",
+                "value": "1"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Create Instructor",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{jwt_token}}",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{ \"name\": \"ruby\",\n \"bio\": \"15 years experience\",\n \"Specialty\": \"brik\",\"Availability\": \"afternoon\"}"
+          },
+          "url": {
+            "raw": "http://localhost:8081/api/v1/instructors",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8081",
+            "path": ["api", "v1", "instructors"]
+          }
+        }
+      },
+      {
+        "name": "Update Instructor",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{jwt_token}}",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{ \"nick\": \"ruby\",\n \"bio\": \"12 years experience\",\n \"Specialty\": \"hipop\",\"Availability\": \"morning\"}"
+         },
+          "url": {
+            "raw": "http://localhost:8081/api/v1/instructors/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8081",
+            "path": ["api", "v1", "instructors", ":id"],
+            "variable": [
+              {
+                "id": "id",
+                "value": "1"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Delete Instructor",
+        "request": {
+          "method": "DELETE",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{jwt_token}}",
+              "type": "text"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8081/api/v1/instructors/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8081",
+            "path": ["api", "v1", "instructors", ":id"],
+            "variable": [
+              {
+                "id": "id",
+                "value": "1"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "variable": [
+      {
+        "key": "jwt_token",
+        "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDIwNTYwMzAsImlhdCI6MTc0MTk2OTYzMCwic3ViIjoidGVzdC11c2VyIn0.mcDDwpoW5nq9DuBJ29HnotdyzDsuj3Hu8eBtLiIPE2CEpIhqMwV9A6fM9N2gRkrnP5jx-VVQ2ppTemiUiRcsrMaL0HJL31qWSSH73oSRUttG3Z8FJS1ZASYrtdqm86IHbD_PKuol-R4EmvqJItonlyciDSFnL9DaQa2P_pdkikXs949mo5MU8KHFSC6BurPBjrCKWlb7xzDQGN7VwXXXZISo-sSux9fYtNqYTANBdJ1d42-fL_G-VUihIXt7nXQ6atv1vDseP2heGJiDG1ccLHZ69GmzxM7kRQ0ZEFm5qnEOlUDNfKlbCeM2Vab-8At5LxWNUOQ3uXq5PYZWc91n5w"
+      }
+    ]
+  }
